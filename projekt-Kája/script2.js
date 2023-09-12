@@ -10,8 +10,11 @@ const pojisteni = document.querySelector(".pojisteni");
 const kontakt = document.querySelector(".kontakt");
 const novyPojistenec = document.querySelector(".novyPojistenec");
 const pridatPojisteni = document.querySelector(".informace-o-pojistenem");
+const articleInfo = document.querySelector(".info");
+const infoKontakt = document.querySelector(".infoKontakt");
 console.log(pridatPojisteni);
 console.log(registrace);
+console.log(informace);
 
 function vytvorSeznamPojistenych() {
   seznamPojistenych.innerHTML = "";
@@ -152,6 +155,8 @@ pojisteni.addEventListener("click", () => {
   });
 
   novyPojistenec.style.display = "none";
+  articleInfo.style.display = "none";
+  infoKontakt.style.display = "none";
 
   smazatButtons.forEach((button) => {
     button.style.display = "block";
@@ -171,4 +176,44 @@ registrace.addEventListener("click", () => {
   });
 
   novyPojistenec.style.display = "block";
+  articleInfo.style.display = "none";
+  infoKontakt.style.display = "none";
+});
+
+informace.addEventListener("click", () => {
+  const pridatPojisteni = document.querySelectorAll(".informace-o-pojistenem");
+  const smazatButtons = document.querySelectorAll(".smazat");
+
+  console.log(pridatPojisteni, smazatButtons);
+
+  pridatPojisteni.forEach((element) => {
+    element.style.display = "none";
+  });
+
+  smazatButtons.forEach((button) => {
+    button.style.display = "none";
+  });
+
+  novyPojistenec.style.display = "none";
+  articleInfo.style.display = "block";
+  infoKontakt.style.display = "none";
+});
+
+kontakt.addEventListener("click", () => {
+  const pridatPojisteni = document.querySelectorAll(".informace-o-pojistenem");
+  const smazatButtons = document.querySelectorAll(".smazat");
+
+  console.log("pes ?");
+
+  pridatPojisteni.forEach((element) => {
+    element.style.display = "none";
+  });
+
+  smazatButtons.forEach((button) => {
+    button.style.display = "none";
+  });
+
+  novyPojistenec.style.display = "none";
+  articleInfo.style.display = "none";
+  infoKontakt.style.display = "block";
 });
