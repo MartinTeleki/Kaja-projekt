@@ -175,10 +175,7 @@ footer a {
   margin-top: 10px;
 }
 
-/* .informace-o-pojistenem,
-.smazat {
-  display: none;
-} */
+
 
 .info {
   display: none;
@@ -186,4 +183,10 @@ footer a {
 
 .infoKontakt {
   display: none;
+}
+
+
+.active {
+
+  color: #52e5ff;; /
 }

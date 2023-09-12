@@ -12,6 +12,8 @@ const novyPojistenec = document.querySelector(".novyPojistenec");
 const pridatPojisteni = document.querySelector(".informace-o-pojistenem");
 const articleInfo = document.querySelector(".info");
 const infoKontakt = document.querySelector(".infoKontakt");
+const nadpisPojisteni = document.querySelector(".nadpisPojisteni");
+console.log(nadpisPojisteni);
 console.log(pridatPojisteni);
 console.log(registrace);
 console.log(informace);
@@ -28,6 +30,7 @@ function vytvorSeznamPojistenych() {
     informaceOPojistenem.innerHTML = `<div>Jméno: ${pojisteny.jmeno}</div><div>Příjmení: ${pojisteny.prijmeni}</div><div>Věk: ${pojisteny.vek}</div><div>Telefon: ${pojisteny.telefon}</div>`;
 
     const smazatButton = document.createElement("button");
+    smazatButton.classList.add("smazat");
     smazatButton.textContent = "Smazat";
     smazatButton.addEventListener("click", function () {
       polePojistenych.splice(index, 1);
@@ -40,6 +43,7 @@ function vytvorSeznamPojistenych() {
     seznamPojistenych.appendChild(novyPojisteny);
   });
 }
+
 const ulozenaPolePojistenych =
   JSON.parse(localStorage.getItem("pojisteni")) || [];
 const polePojistenych = ulozenaPolePojistenych;
@@ -93,58 +97,9 @@ ulozitTlacitko.addEventListener("click", function () {
   prijmeniInput.value = "";
   vekInput.value = "";
   telefonInput.value = "";
+
+  novyPojistenec.style.display = "none";
 });
-
-vytvorSeznamPojistenych();
-
-function vytvorSeznamPojistenych() {
-  seznamPojistenych.innerHTML = "";
-
-  polePojistenych.forEach(function (pojisteny, index) {
-    const novyPojisteny = document.createElement("div");
-    novyPojisteny.classList.add("pojisteny");
-
-    const informaceOPojistenem = document.createElement("div");
-    informaceOPojistenem.classList.add("informace-o-pojistenem");
-
-    const jmenoDiv = document.createElement("div");
-    jmenoDiv.classList.add("text");
-    jmenoDiv.innerHTML = `<div><strong>Jméno:</strong></div><div>${pojisteny.jmeno}</div>`;
-
-    const prijmeniDiv = document.createElement("div");
-    prijmeniDiv.classList.add("text");
-    prijmeniDiv.innerHTML = `<div><strong>Příjmení:</strong></div><div>${pojisteny.prijmeni}</div>`;
-
-    const vekDiv = document.createElement("div");
-    vekDiv.classList.add("text");
-    vekDiv.innerHTML = `<div><strong>Věk:</strong></div><div>${pojisteny.vek}</div>`;
-
-    const telefonDiv = document.createElement("div");
-    telefonDiv.classList.add("text");
-    telefonDiv.innerHTML = `<div><strong>Telefon:</strong></div><div>${pojisteny.telefon}</div>`;
-
-    informaceOPojistenem.appendChild(jmenoDiv);
-    informaceOPojistenem.appendChild(prijmeniDiv);
-    informaceOPojistenem.appendChild(vekDiv);
-    informaceOPojistenem.appendChild(telefonDiv);
-
-    const smazatButton = document.createElement("button");
-    smazatButton.classList.add("smazat");
-    smazatButton.textContent = "Smazat";
-    smazatButton.addEventListener("click", function () {
-      polePojistenych.splice(index, 1);
-      localStorage.setItem("pojisteni", JSON.stringify(polePojistenych));
-      vytvorSeznamPojistenych();
-    });
-
-    novyPojisteny.appendChild(informaceOPojistenem);
-    novyPojisteny.appendChild(smazatButton);
-    seznamPojistenych.appendChild(novyPojisteny);
-
-    informaceOPojistenem.style.display = "none";
-    smazatButton.style.display = "none";
-  });
-}
 
 pojisteni.addEventListener("click", () => {
   const pridatPojisteni = document.querySelectorAll(".informace-o-pojistenem");
@@ -157,6 +112,7 @@ pojisteni.addEventListener("click", () => {
   novyPojistenec.style.display = "none";
   articleInfo.style.display = "none";
   infoKontakt.style.display = "none";
+  nadpisPojisteni.style.display = "block";
 
   smazatButtons.forEach((button) => {
     button.style.display = "block";
@@ -178,6 +134,7 @@ registrace.addEventListener("click", () => {
   novyPojistenec.style.display = "block";
   articleInfo.style.display = "none";
   infoKontakt.style.display = "none";
+  nadpisPojisteni.style.display = "none";
 });
 
 informace.addEventListener("click", () => {
@@ -197,6 +154,7 @@ informace.addEventListener("click", () => {
   novyPojistenec.style.display = "none";
   articleInfo.style.display = "block";
   infoKontakt.style.display = "none";
+  nadpisPojisteni.style.display = "none";
 });
 
 kontakt.addEventListener("click", () => {
@@ -216,4 +174,33 @@ kontakt.addEventListener("click", () => {
   novyPojistenec.style.display = "none";
   articleInfo.style.display = "none";
   infoKontakt.style.display = "block";
+  nadpisPojisteni.style.display = "none";
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const pridatPojisteni = document.querySelectorAll(".informace-o-pojistenem");
+  pridatPojisteni.forEach((element) => {
+    element.style.display = "none";
+  });
+
+  const smazatButtons = document.querySelectorAll(".smazat");
+  smazatButtons.forEach((button) => {
+    button.style.display = "none";
+  });
+  nadpisPojisteni.style.display = "none";
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const navigace = document.querySelector("nav ul");
+  const tlacitka = navigace.querySelectorAll("li a");
+
+  tlacitka.forEach((tlacitko) => {
+    tlacitko.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      tlacitka.forEach((t) => t.classList.remove("active"));
+
+      this.classList.add("active");
+    });
+  });
 });
