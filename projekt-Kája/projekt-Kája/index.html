@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="cs-cz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Karolína Dohnalová" />
+    <meta name="description" content="Projekt Pojištěnci Karolína Dohnalová" />
+    <meta name="keywords" content="projekt, aplikace, Karolína Dohnalová" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <title>Pojištěnci</title>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Evidence pojištěnců</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#" class="informace">Informace</a></li>
+          <li><a href="#" class="registrace">Registrace</a></li>
+          <li><a href="#" class="pojisteni">Pojištění</a></li>
+          <li><a href="#" class="kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="sectionPojisteni">
+      <article class="novyPojistenec">
+        <h2>Nový pojištěnec</h2>
+
+        <div class="input-container">
+          <label for="jmeno">Křestní jméno:</label>
+          <input type="text" id="jmeno" placeholder="Jan" />
+        </div>
+
+        <div class="input-container">
+          <label for="prijmeni">Příjmení:</label>
+          <input type="text" id="prijmeni" placeholder="Novák" />
+        </div>
+
+        <div class="input-container">
+          <label for="vek">Věk:</label>
+          <input type="number" id="vek" placeholder="158" />
+        </div>
+
+        <div class="input-container">
+          <label for="telefon">Telefonní číslo:</label>
+          <input type="text" id="telefon" placeholder="+420 557 887 111" />
+        </div>
+
+        <button class="ulozit">ULOŽIT</button>
+      </article>
+
+      <h2 class="nadpisPojisteni">Seznam pojištěných</h2>
+      <article class="seznamPojistenych">
+        <ul id="seznamPojistenych" class="pojisteni-list"></ul>
+      </article>
+
+      <article class="info" display="none">
+        <h2>Informace pojišťovně</h2>
+        <p>Dnes je krásný den</p>
+      </article>
+
+      <article class="infoKontakt" display="none">
+        <h2>Kontakt</h2>
+        <p>Tady je mé číslo</p>
+      </article>
+
+      <script src="script2.js"></script>
+    </section>
+
+    <footer>
+      Vytvořila &copy;Karolína Dohnalová
+      <a href="http://www.karolideveloper.cz/%22%3Ekarolideveloper.cz"></a>
+    </footer>
+  </body>
+</html>
