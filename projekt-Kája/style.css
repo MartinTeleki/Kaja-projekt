@@ -1,0 +1,185 @@
+/* Resetování některých výchozích stylů */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Základní styly pro tělo stránky */
+body {
+  font-family: "Verdana", sans-serif;
+  font-size: 14px;
+  color: #414042;
+  background: #f9f9f9;
+  padding: 0;
+  margin: 0;
+  min-height: 100vh; /* Minimální výška těla na výšku obrazovky */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  background: #262c30;
+  color: #52e5ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+header h1 {
+  font-size: 24px;
+}
+
+/* Navigační menu */
+nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li {
+  font-size: 16px;
+}
+
+nav ul a {
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  transition: border-bottom 0.3s ease;
+}
+
+nav ul a:hover,
+nav ul .aktivni a {
+  border-bottom: 2px solid #52e5ff;
+}
+
+/* Sekce */
+section {
+  flex: 1; /* Roztáhne sekci na zbytek dostupného místa */
+  max-width: 960px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Články */
+article {
+  margin-bottom: 20px;
+}
+
+article h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 20px;
+  float: left; /* Přidáme float vlevo */
+}
+
+/* Tlačítka */
+button {
+  padding: 10px 20px;
+  font-weight: bold;
+  background: #17788a;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #17788a;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: #262c30;
+  color: white;
+  padding: 20px 0;
+  margin-top: auto; /* Přesune footer na spodek stránky */
+}
+
+footer a {
+  display: block;
+  margin-top: 10px;
+  color: white;
+  text-decoration: none;
+}
+/* CSS pro řádky a sloupce */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.column {
+  flex: 1;
+  margin-right: 10px;
+}
+
+/* Styly pro tlačítko */
+.ulozit {
+  margin-top: 10px;
+}
+
+.sectionPojisteni {
+  width: 80vw;
+}
+
+.input-container {
+  margin-bottom: 10px;
+}
+
+.input-container label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-container input {
+  width: 20vw;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.seznamPojistenych {
+  margin-top: 20px;
+}
+
+.pojisteni-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.pojisteni-list li {
+  margin-bottom: 10px;
+}
+
+.pojisteni-list p {
+  margin: 0;
+}
+
+.informace-o-pojistenem {
+  background-color: #f5f5f5;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.pojisteni-list li {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
